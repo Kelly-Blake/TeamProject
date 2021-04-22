@@ -1,0 +1,603 @@
+//globalvariables
+var currentScene = 1;
+var currentColor = color(0, 0, 0);
+var color1 = color(255, 255, 0);
+var color2 = color(255, 255, 255);
+var color3 = color(43, 171, 60);
+var coloredsquares = 0;
+
+//Alyssa bitmoji
+var drawHead = function(bitmojiX,bitmojiY,bitmojiSize) {
+    var p = bitmojiSize/100;
+    //face
+    fill(232, 213, 157);
+    noStroke();
+    rect(bitmojiX+91*p,bitmojiY+115*p,21*p,28*p);
+    ellipse(bitmojiX+100*p,bitmojiY+83*p,99*p,100*p);
+    //eyes
+    fill(255, 255, 255); //whites
+    ellipse(bitmojiX+84*p,bitmojiY+76*p,20*p,20*p);
+    fill(255, 255, 255);
+    ellipse(bitmojiX+120*p,bitmojiY+76*p,20*p,20*p);
+    fill(138, 74, 5); //brown
+    noStroke();
+    ellipse(bitmojiX+120*p,bitmojiY+79*p,13*p,14*p);
+    fill(138, 74, 5);
+    ellipse(bitmojiX+84*p,bitmojiY+79*p,13*p,14*p);
+    fill(0, 0, 0); //pupil
+    ellipse(bitmojiX+120*p,bitmojiY+80*p,7*p,9*p);
+    fill(0, 0, 0);
+    ellipse(bitmojiX+84*p,bitmojiY+80*p,7*p,9*p);
+    fill(255, 255, 255); //shine
+    noStroke();
+    ellipse(bitmojiX+122*p,bitmojiY+80*p,5*p,2*p);
+    fill(255, 255, 255);
+    ellipse(bitmojiX+86*p,bitmojiY+80*p,5*p,2*p);
+    //mouth
+    fill(232, 213, 157);
+    stroke(0, 0, 0);
+    arc(bitmojiX+101*p,bitmojiY+105*p,20*p,12*p,10,170);
+    //nose
+    line (bitmojiX+102*p,bitmojiY+86*p,bitmojiX+98*p,bitmojiY+97*p);
+    line (bitmojiX+105*p,bitmojiY+97*p,bitmojiX+97*p,bitmojiY+97*p);
+    //brows
+    fill(232, 213, 157);
+    stroke(0, 0, 0);
+    arc(bitmojiX+120*p,bitmojiY+66*p,20*p,12*p,200,340);
+    fill(232, 213, 157);
+    stroke(0, 0, 0);
+    arc(bitmojiX+85*p,bitmojiY+66*p,20*p,12*p,200,340);
+    var p = bitmojiSize/100;
+    //hair
+    fill (79, 49, 14);
+    noStroke();
+    quad(bitmojiX+62*p,bitmojiY+137*p,bitmojiX+38*p,bitmojiY+143*p,bitmojiX+55*p,bitmojiY+40*p,bitmojiX+75*p,bitmojiY+50*p);
+    quad(bitmojiX+131*p,bitmojiY+58*p,bitmojiX+144*p,bitmojiY+137*p,bitmojiX+163*p,bitmojiY+146*p,bitmojiX+149*p,bitmojiY+42*p);
+    fill(0, 0, 0);//beanie
+    arc (bitmojiX+102*p,bitmojiY+54*p,102*p,69*p,169,374);
+    
+};
+
+var drawBody = function(bitmojiX,bitmojiY,bitmojiSize) {
+    var p = bitmojiSize/100;
+    //shirt
+    fill(64, 67, 128);
+    noStroke();
+    quad(bitmojiX+82*p,bitmojiY+250*p,bitmojiX+39*p,bitmojiY+250*p,bitmojiX+50*p,bitmojiY+147*p ,bitmojiX+92*p,bitmojiY+137*p);
+    quad(bitmojiX+129*p,bitmojiY+250*p,bitmojiX+164*p,bitmojiY+250*p,bitmojiX+155*p,bitmojiY+147*p,bitmojiX+110*p,bitmojiY+137*p);
+    rect(bitmojiX+87*p,bitmojiY+138*p,30*p,113*p);
+    rect(bitmojiX+79*p,bitmojiY+147*p,54*p,104*p);
+    fill(154, 153, 199);
+    textSize(29*p);
+    text("AK",bitmojiX+83*p,bitmojiY+183*p);
+};
+
+var drawBitmoji = function(bitmojiX,bitmojiY,bitmojiSize) {
+    drawHead(bitmojiX,bitmojiY,bitmojiSize);
+    drawBody(bitmojiX,bitmojiY,bitmojiSize);
+};
+
+//Kelly bitmoji
+
+var drawKHead = function(bitmojiX,bitmojiY,bitmojiH) 
+{
+noStroke();
+
+//Head and Hair
+var t = bitmojiH/100;
+
+fill(255, 219, 172);//Skin Color
+ellipse(bitmojiX+(-460*t),bitmojiY+(135*t),93*t,100*t);//head
+
+
+fill(69, 48, 48);//top hair color
+ellipse(bitmojiX+(t*-460),bitmojiY+(t*86),t*87,t*43); //top hair 
+
+fill(255, 219, 172);//skin Color for forhead
+ellipse(bitmojiX+(t*-460),bitmojiY+(t*115),t*58,t*-51);//forhead
+
+fill(69, 48, 48);//Hair color
+quad(bitmojiX+(t*-513),bitmojiY+(t*84),bitmojiX+(t*-454),bitmojiY+(t*63),bitmojiX+(t*-502),bitmojiY+(t*153),bitmojiX+(t*-517),bitmojiY+(t*246)); // Left hair 
+quad(bitmojiX+(t*-415),bitmojiY+(t*227),bitmojiX+(t*-394),bitmojiY+(t*96),bitmojiX+(t*-408),bitmojiY+(t*85),bitmojiX+(t*-438),bitmojiY+(t*58)); // Left hair 
+
+//Eyes
+fill(250, 250, 250);//eye fill 
+ellipse(bitmojiX+(t*-440),bitmojiY+(t*124),t*18,t*21); //right eye
+ellipse(bitmojiX+(t*-480),bitmojiY+(t*124),t*18,t*21); //left eye
+
+fill(120,134,108);// eye middle color
+ellipse(bitmojiX+(t*-440),bitmojiY+(t*124),t*9,t*12); //right eye-middle
+ellipse(bitmojiX+(t*-480),bitmojiY+(t*124),t*9,t*12); //left eye-middle
+
+fill(0, 0, 0);
+ellipse(bitmojiX+(t*223),bitmojiY+(t*124),t*4,t*5); //right eye-middle
+ellipse(bitmojiX+(t*193),bitmojiY+(t*124),t*4,t*5); //left eye-middle
+
+//Nose
+stroke(0, 0, 0);//nose outline
+strokeWeight(1);
+fill(255, 219, 172);//skin color for nose
+bezier(bitmojiX+(t*-460), bitmojiY+(t*149),bitmojiX+(t*-466), bitmojiY+(t*147), bitmojiX+(t*-467), bitmojiY+(t*159), bitmojiX+(t*-468), bitmojiY+(t*136));//nose shape 
+
+//mouth
+stroke(235, 91, 91);
+fill(255, 255, 255);//teeth color
+arc(bitmojiX+(t*-458),bitmojiY+(t*161),t*34,t*25,353,545);//mouth 
+line(bitmojiX+(t*-477),bitmojiY+(t*160),bitmojiX+(t*-443),bitmojiY+(t*160));//Top of mouth
+
+//Hat
+noStroke();
+fill(245, 159, 242);//hat color
+ellipse(bitmojiX+(t*-454),bitmojiY+(t*46),t*83,t*39);//hat lip
+ellipse(bitmojiX+(t*-451),bitmojiY+(t*80),t*137,t*69);//hat top
+};
+
+var drawKBody = function (bitmojiX,bitmojiY,bitmojiH) 
+{
+var t = bitmojiH/100;
+//Shirt
+noStroke();
+fill(0, 0, 0);//Long sleeve color
+rect(bitmojiX+(t*-476),bitmojiY+(t*181),t*41,t*38);//turtle neck 
+rect(bitmojiX+(t*-504),bitmojiY+(t*207),t*14,t*78);//Arm L 
+rect(bitmojiX+(t*-411),bitmojiY+(t*207),t*14,t*78);//Arm R
+
+fill(90, 130, 21);//shortsleeve color
+rect(bitmojiX+(t*-489),bitmojiY+(t*189),t*76,t*94);//shortsleeve base
+ellipse(bitmojiX+(t*-489),bitmojiY+(t*204),t*36,t*30);//shoulders L
+ellipse(bitmojiX+(t*-413),bitmojiY+(t*204),t*36,t*30);//shoulders R
+
+//Shirt design 
+fill(0, 0, 0);
+rect(bitmojiX+(t*-435),bitmojiY+(t*203),t*7,t*27);//Cactus design 
+arc(bitmojiX+(t*-433),bitmojiY+(t*217),t*20,t*16,435,567);//Cactus arm L
+arc(bitmojiX+(t*-428),bitmojiY+(t*207),t*20,t*17,317,486);//Cactus arm R
+
+//Initials  (K)
+fill(255, 255, 255);
+rect(bitmojiX+(t*-482),bitmojiY+(t*236),t*4,t*28);//Inital K 
+triangle(bitmojiX+(t*-484),bitmojiY+(t*244),bitmojiX+(t*-458),bitmojiY+(t*234),bitmojiX+(t*-476),bitmojiY+(t*251));//Upper K 
+triangle(bitmojiX+(t*-486),bitmojiY+(t*270),bitmojiX+(t*-458),bitmojiY+(t*264),bitmojiX+(t*-476),bitmojiY+(t*248));//Lower K
+
+//Initials (B)
+stroke(255, 255, 255);//line B
+strokeWeight(4);// Thinker line B
+noFill();
+ellipse(bitmojiX+(t*-432),bitmojiY+(t*246),t*18,t*12);//Upper B
+ellipse(bitmojiX+(t*-432),bitmojiY+(t*261),t*17,t*13);//Lower B
+rect(bitmojiX+(t*-447),bitmojiY+(t*240),t*2,t*29);//Inital B 
+};
+
+var drawKelly = function(bitmojiX,bitmojiY,bitmojiH)
+{
+    drawKHead (bitmojiX,bitmojiY,bitmojiH);
+    drawKBody (bitmojiX,bitmojiY,bitmojiH);
+};
+
+//squares
+var Square = function(config) {
+    this.x = config.x || 176;
+    this.y = config.y || 50;
+    this.width = config.width || 40;
+    this.height = config.height || 40;
+    this.label = config.label || "1";
+    this.color = config.color;
+    this.onClick = config.onClick || function() {};
+};
+
+Square.prototype.draw = function() {
+    fill(this.color);
+    rect(this.x, this.y, this.width, this.height);
+    fill(0, 0, 0);
+    textSize(15);
+    text(this.label, this.x+16, this.y+this.height/4);
+};
+
+Square.prototype.isMouseInside = function() {
+    return mouseX > this.x &&
+           mouseX < (this.x + this.width) &&
+           mouseY > this.y &&
+           mouseY < (this.y + this.height);
+};
+
+Square.prototype.handleMouseClick = function() {
+    if (this.isMouseInside()) {
+        this.onClick();
+    }
+};
+
+//yellow 1 squares
+var coloredcolor1Square1 = new Square({ //the filled in square is drawn on top of the empty square
+    x: 175,
+    y: 150,
+    width: 42,
+    label: " ",
+    color: color1,
+});
+
+var color1Square1 = new Square({ //the square with no color and number visable
+    x: 175,
+    y: 150,
+    width: 42,
+    label: "1",
+    color: color(209, 209, 209),
+    onClick: function() {
+        if (currentColor === color1) {
+        draw = function() {
+            noStroke();
+           coloredcolor1Square1.draw(); 
+        };
+        }
+    }
+    
+});
+
+//white 2 squares
+var coloredcolor2Square1 = new Square({
+    x: 217,
+    y: 150,
+    width: 42,
+    label: " ",
+    color: color2,
+});
+
+var color2Square1 = new Square({
+    x: 217,
+    y: 150,
+    width: 42,
+    label: "2",
+    color: color(230, 230, 230),
+    onClick: function() {
+        if (currentColor === color2) {
+        draw = function() {
+            noStroke();
+           coloredcolor2Square1.draw();
+        };
+        }
+    }
+});
+
+var coloredcolor2Square2 = new Square({
+    x: 133,
+    y: 150,
+    width: 42,
+    label: " ",
+    color: color2,
+});
+
+var color2Square2 = new Square({
+    x: 133,
+    y: 150,
+    width: 42,
+    label: "2",
+    color: color(230, 230, 230),
+    onClick: function() {
+        if (currentColor === color2) {
+        draw = function() {
+            noStroke();
+           coloredcolor2Square2.draw();
+        };
+        }
+    }
+});
+
+var coloredcolor2Square3 = new Square({
+    x: 175,
+    y: 110,
+    width: 42,
+    label: " ",
+    color: color2,
+});
+
+var color2Square3 = new Square({
+    x: 175,
+    y: 110,
+    width: 42,
+    label: "2",
+    color: color(230, 230, 230),
+    onClick: function() {
+        if (currentColor === color2) {
+        draw = function() {
+            noStroke();
+           coloredcolor2Square3.draw();
+        };
+        }
+    }
+});
+
+var coloredcolor2Square4 = new Square({
+    x: 175,
+    y: 190,
+    width: 42,
+    label: " ",
+    color: color2,
+});
+
+var color2Square4 = new Square({
+    x: 175,
+    y: 190,
+    width: 42,
+    label: "2",
+    color: color(230, 230, 230),
+    onClick: function() {
+        if (currentColor === color2) {
+        draw = function() {
+            noStroke();
+           coloredcolor2Square4.draw();
+        };
+        }
+    }
+});
+
+var coloredcolor3Square1 = new Square({
+    x: 175,
+    y: 230,
+    width: 42,
+    label: " ",
+    color: color3,
+});
+
+//green 3 squares
+var color3Square1 = new Square({
+    x: 175,
+    y: 230,
+    width: 42,
+    label: "3",
+    color: color(186, 186, 186),
+    onClick: function() {
+        if (currentColor === color3) {
+        draw = function() {
+            noStroke();
+           coloredcolor3Square1.draw();
+        };
+        }
+    }
+});
+
+var coloredcolor3Square3 = new Square({
+    x: 175,
+    y: 270,
+    width: 42,
+    label: " ",
+    color: color3,
+});
+
+var color3Square3 = new Square({
+    x: 175,
+    y: 270,
+    width: 42,
+    label: "3",
+    color: color(186, 186, 186),
+    onClick: function() {
+        if (currentColor === color3) {
+        draw = function() {
+            noStroke();
+           coloredcolor3Square3.draw();
+        };
+        }
+    }
+});
+
+var coloredcolor3Square2 = new Square({
+    x: 217,
+    y: 230,
+    width: 42,
+    label: " ",
+    color: color3,
+});
+
+var color3Square2 = new Square({
+    x: 217,
+    y: 230,
+    width: 42,
+    label: "3",
+    color: color(186, 186, 186),
+    onClick: function() {
+        if (currentColor === color3) {
+        draw = function() {
+            noStroke();
+           coloredcolor3Square2.draw();
+        };
+        }
+        
+    }
+});
+
+
+//startbutton for splash screen
+var startButton = function(config) {
+    this.x = config.x || 0;
+    this.y = config.y || 0;
+    this.width = config.width || 150;
+    this.height = config.height || 50;
+    this.label = config.label || "Click";
+    this.onClick = config.onClick || function() {};
+};
+
+startButton.prototype.draw = function() {
+    fill(255, 255, 255);
+    rect(this.x, this.y, this.width, this.height, 5);
+    fill(0, 0, 0);
+    textSize(19);
+    textAlign(LEFT, TOP);
+    text(this.label, this.x+10, this.y+this.height/4);
+};
+
+startButton.prototype.isMouseInside = function() {
+    return mouseX > this.x &&
+           mouseX < (this.x + this.width) &&
+           mouseY > this.y &&
+           mouseY < (this.y + this.height);
+};
+
+startButton.prototype.handleMouseClick = function() {
+    if (this.isMouseInside()) {
+        this.onClick();
+    }
+}; 
+
+var StartButton = new startButton({
+    x: 145,
+    y: 250,
+    width: 113,
+    label: "Start Game",
+    onClick: function() {
+        currentScene = 2;
+    }
+});
+
+//splash screen 
+var drawScene1 = function() {
+    background(155, 203, 235);
+    stroke(0, 0, 0);
+    fill(255, 255, 255);
+    textSize(39);
+    text("Color By Number", 55, height/3);
+    StartButton.draw();
+    drawBitmoji(291,272,50);
+    drawKelly(292,266,50);
+}; 
+
+var NextButton = new startButton({
+    x: 130,
+    y: 250,
+    label: "   Next Drawing",
+    onClick: function() {
+        currentScene = 3;
+    }
+});
+
+//buttons
+var Button = function(config) {
+    this.x = config.x || 0;
+    this.y = config.y || 0;
+    this.width = config.width || 150;
+    this.height = config.height || 50;
+    this.label = config.label || "Click";
+    this.color = config.color || fill(255, 255, 255);
+    this.onClick = config.onClick || function() {};
+};
+
+Button.prototype.draw = function() {
+    fill(this.color);
+    ellipse(this.x, this.y, this.width, this.height);
+    fill(0, 0, 0);
+    textSize(19);
+    textAlign(LEFT, TOP);
+    text(this.label, this.x - 5, this.y+this.height/4 - 23);
+};
+
+Button.prototype.isMouseInside = function() {
+    return mouseX > this.x &&
+           mouseX < (this.x + this.width) &&
+           mouseY > this.y &&
+           mouseY < (this.y + this.height);
+};
+
+Button.prototype.handleMouseClick = function() {
+    if (this.isMouseInside()) {
+        this.onClick();
+    }
+};
+
+//color buttons
+var Button1 = new Button({
+    x: 50,
+    y: 354,
+    width: 50,
+    label: "1",
+    color: color1,
+    onClick: function() {
+        currentColor = color1;
+        draw = function() {
+            fill(currentColor);
+            rect(120,21,15,15);
+        };
+    }
+});
+
+var Button2 = new Button({
+    x: 115,
+    y: 354,
+    width: 50,
+    label: "2",
+    color: color2,
+    onClick: function() {
+        currentColor = color2;
+        draw = function() {
+            fill(currentColor);
+            rect(120,21,15,15);
+        };
+    }
+});
+
+var Button3 = new Button({
+    x: 180,
+    y: 354,
+    width: 50,
+    label: "3",
+    color: color3,
+    onClick: function() {
+        currentColor = color3;
+        draw = function() {
+            fill(currentColor);
+            rect(120,21,15,15);
+        };
+    }
+});
+
+
+mouseClicked = function() {
+    if (currentScene === 1) {
+        StartButton.handleMouseClick();
+    }
+    color1Square1.handleMouseClick();
+    color2Square1.handleMouseClick();
+    color2Square2.handleMouseClick();
+    color2Square3.handleMouseClick();
+    color2Square4.handleMouseClick();
+    color3Square1.handleMouseClick();
+    color3Square2.handleMouseClick();
+    color3Square3.handleMouseClick();
+    Button1.handleMouseClick();
+    Button2.handleMouseClick();
+    Button3.handleMouseClick();
+    
+    
+};
+
+
+draw = function() {
+    if (currentScene === 1) {
+        drawScene1();
+    }
+    else {
+    background(191, 228, 255);
+    fill(0, 0, 0);
+    textSize(25);
+    text("Color the Flower", 110,53);
+    textSize(15);
+    text("Current Color: ",20,20);
+    stroke(0, 0, 0);
+    fill(currentColor);
+    text(coloredsquares,100,100);
+    rect(120,21,15,15);
+    color1Square1.draw();
+    color2Square1.draw();
+    color2Square2.draw();
+    color2Square3.draw();
+    color2Square4.draw();
+    color3Square1.draw();
+    color3Square2.draw();
+    color3Square3.draw();
+    Button1.draw();
+    Button2.draw();
+    Button3.draw();
+    if (coloredsquares >= 8) {
+        NextButton.draw();
+    }
+    }
+    
+};
+
+
