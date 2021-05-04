@@ -1,5 +1,5 @@
 //globalvariables
-var currentScene = 1;
+var currentScene = 0;
 var currentColor = color(0, 0, 0);
 /*var color1 = color(255, 255, 0);
 var color2 = color(255, 255, 255);
@@ -578,7 +578,7 @@ var scene2pinkSquare6 = new Square({
     }
 });
 
-//red squares
+//red squares * NEED TO FIX GREEN SQUARE IN L2
 var scene2coloredredSquare1 = new Square({
     x: 133,
     y: 110,
@@ -838,12 +838,12 @@ var StartButton = new startButton({
     width: 113,
     label: "Start Game",
     onClick: function() {
-        currentScene = 2;
+        currentScene = 1;
     }
 });
 
 //splash screen 
-var drawScene1 = function() {
+var drawScene0 = function() {
     background(155, 203, 235);
     stroke(0, 0, 0);
     fill(255, 255, 255);
@@ -853,7 +853,7 @@ var drawScene1 = function() {
     drawBitmoji(291,276,50);
     drawKelly(292,266,50);
 }; 
-
+var drawScene2; //declairs this so that it exisits but doesn't have a value
 var NextButton = new startButton({
     x: 300,
     y: 20,
@@ -861,10 +861,11 @@ var NextButton = new startButton({
     height: 30,
     label: "  Next",
     onClick: function() {
-        currentScene = 3;
+        //currentScene = 2;
+        drawScene2();
     }
 });
-
+var drawScene3;
 var NextButton2 = new startButton({
     x: 300,
     y: 340,
@@ -872,7 +873,8 @@ var NextButton2 = new startButton({
     height: 30,
     label: "  Next",
     onClick: function() {
-        currentScene = 4;
+        drawScene3();
+        //currentScene = 3;
     }
 });
 
@@ -1045,7 +1047,7 @@ var Scene3Button3 = new Button({
     }
 });
 
-var drawScene2 = function() {
+var drawScene1 = function() {
     background(191, 228, 255);
     fill(0, 0, 0);
     textSize(25);
@@ -1070,7 +1072,7 @@ var drawScene2 = function() {
     
 };
 
-var drawScene3 = function() {
+var drawScene2 = function() {
     background(191, 228, 255);
     fill(0, 0, 0);
     textSize(25);
@@ -1102,7 +1104,7 @@ var drawScene3 = function() {
     scene2redSquare9.draw();
 };
 
-var drawScene4 = function() {
+var drawScene3 = function() {
     background(191, 228, 255);
     fill(0, 0, 0);
     textSize(25);
@@ -1118,10 +1120,10 @@ var drawScene4 = function() {
 };
 
 mouseClicked = function() {
-    if (currentScene === 1) {
+    if (currentScene === 0) {
         StartButton.handleMouseClick();
     }
-    if (currentScene === 2) {
+    if (currentScene === 1) {
         NextButton.handleMouseClick();
         color1Square1.handleMouseClick();
         color2Square1.handleMouseClick();
@@ -1135,7 +1137,7 @@ mouseClicked = function() {
         Button2.handleMouseClick();
         Button3.handleMouseClick();
     }
-    if (currentScene === 3) {
+    if (currentScene === 2) {
         Scene2Button1.handleMouseClick();
         Scene2Button2.handleMouseClick();
         Scene2Button3.handleMouseClick();
@@ -1157,7 +1159,7 @@ mouseClicked = function() {
         scene2redSquare8.handleMouseClick();
         scene2redSquare9.handleMouseClick();
     }
-    if (currentScene === 4) {
+    if (currentScene === 3) {
         Scene3Button1.handleMouseClick();
         Scene3Button2.handleMouseClick();
         Scene3Button3.handleMouseClick();
@@ -1169,6 +1171,9 @@ mouseClicked = function() {
 
 //draws different levels
 draw = function() {
+    if (currentScene === 0) {
+        drawScene0();
+    }
     if (currentScene === 1) {
         drawScene1();
     }
@@ -1178,8 +1183,6 @@ draw = function() {
     if (currentScene === 3) {
         drawScene3();
     }
-    if (currentScene === 4) {
-        drawScene4();
-    }
     
 };
+
