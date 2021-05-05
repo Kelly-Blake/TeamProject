@@ -1,10 +1,9 @@
 //globalvariables
 var currentScene = 0;
 var currentColor = color(0, 0, 0);
-/*var color1 = color(255, 255, 0);
-var color2 = color(255, 255, 255);
-var color3 = color(43, 171, 60);*/
-var coloredsquares = 0;
+var level1 = false;
+var level2 = false;
+
 
 //Alyssa bitmoji
 var drawHead = function(bitmojiX,bitmojiY,bitmojiSize) {
@@ -208,597 +207,1005 @@ Square.prototype.handleMouseClick = function() {
 };
 
 //yellow 1 squares
-var coloredcolor1Square1 = new Square({ //the filled in square is drawn on top of the empty square
-    x: 175,
-    y: 150,
-    width: 42,
-    label: " ",
-    color: color(255, 255, 0),
-});
+var coloredsquares1 = [
+    new Square({ //the filled in square is drawn on top of the empty square
+        x: 175,
+        y: 150,
+        width: 42,
+        label: " ",
+        color: color(255, 255, 0),
+        })
+    ];
 
-var color1Square1 = new Square({ //the square with no color and number visable
-    x: 175,
-    y: 150,
-    width: 42,
-    label: "1",
-    color: color(209, 209, 209),
-    onClick: function() {
-        if (currentColor === color(255, 255, 0)) {
-        draw = function() {
-            noStroke();
-           coloredcolor1Square1.draw(); 
-        };
+var squares1 = [
+    new Square({ //the square with no color and number visable
+        x: 175,
+        y: 150,
+        width: 42,
+        label: "1",
+        color: color(209, 209, 209),
+        onClick: function() {
+            if (currentColor === color(255, 255, 0)) {
+            draw = function() {
+                noStroke();
+               coloredsquares1[0].draw(); 
+            };
+            }
         }
-    }
     
-});
+    })
+];
 
 //white 2 squares
-var coloredcolor2Square1 = new Square({
-    x: 217,
-    y: 150,
-    width: 42,
-    label: " ",
-    color: color(255, 255, 255),
-});
+var coloredsquares2 = [
+    new Square({
+        x: 217,
+        y: 150,
+        width: 42,
+        label: " ",
+        color: color(255, 255, 255),
+    }),
+    new Square({
+        x: 133,
+        y: 150,
+        width: 42,
+        label: " ",
+        color: color(255, 255, 255),
+    }),
+    new Square({
+        x: 175,
+        y: 110,
+        width: 42,
+        label: " ",
+        color: color(255, 255, 255),
+    }),
+    new Square({
+        x: 175,
+        y: 190,
+        width: 42,
+        label: " ",
+        color: color(255, 255, 255),
+    }),
+    
+    
+];
 
-var color2Square1 = new Square({
-    x: 217,
-    y: 150,
-    width: 42,
-    label: "2",
-    color: color(230, 230, 230),
-    onClick: function() {
-        if (currentColor === color(255, 255, 255)) {
-        draw = function() {
-            noStroke();
-           coloredcolor2Square1.draw();
-        };
+var squares2 = [
+    new Square({
+        x: 217,
+        y: 150,
+        width: 42,
+        label: "2",
+        color: color(230, 230, 230),
+        onClick: function() {
+            if (currentColor === color(255, 255, 255)) {
+            draw = function() {
+                noStroke();
+               coloredsquares2[0].draw();
+            };
+            }
         }
-    }
-});
-
-var coloredcolor2Square2 = new Square({
-    x: 133,
-    y: 150,
-    width: 42,
-    label: " ",
-    color: color(255, 255, 255),
-});
-
-var color2Square2 = new Square({
-    x: 133,
-    y: 150,
-    width: 42,
-    label: "2",
-    color: color(230, 230, 230),
-    onClick: function() {
-        if (currentColor === color(255, 255, 255)) {
-        draw = function() {
-            noStroke();
-           coloredcolor2Square2.draw();
-        };
+    }),
+    new Square({
+        x: 133,
+        y: 150,
+        width: 42,
+        label: "2",
+        color: color(230, 230, 230),
+        onClick: function() {
+            if (currentColor === color(255, 255, 255)) {
+            draw = function() {
+                noStroke();
+               coloredsquares2[1].draw();
+            };
+            }
         }
-    }
-});
-
-var coloredcolor2Square3 = new Square({
-    x: 175,
-    y: 110,
-    width: 42,
-    label: " ",
-    color: color(255, 255, 255),
-});
-
-var color2Square3 = new Square({
-    x: 175,
-    y: 110,
-    width: 42,
-    label: "2",
-    color: color(230, 230, 230),
-    onClick: function() {
-        if (currentColor === color(255, 255, 255)) {
-        draw = function() {
-            noStroke();
-           coloredcolor2Square3.draw();
-        };
+    }), 
+    new Square({
+        x: 175,
+        y: 110,
+        width: 42,
+        label: "2",
+        color: color(230, 230, 230),
+        onClick: function() {
+            if (currentColor === color(255, 255, 255)) {
+            draw = function() {
+                noStroke();
+               coloredsquares2[2].draw();
+            };
+            }
         }
-    }
-});
-
-var coloredcolor2Square4 = new Square({
-    x: 175,
-    y: 190,
-    width: 42,
-    label: " ",
-    color: color(255, 255, 255),
-});
-
-var color2Square4 = new Square({
-    x: 175,
-    y: 190,
-    width: 42,
-    label: "2",
-    color: color(230, 230, 230),
-    onClick: function() {
-        if (currentColor === color(255, 255, 255)) {
-        draw = function() {
-            noStroke();
-           coloredcolor2Square4.draw();
-        };
+    }),
+        new Square({
+        x: 175,
+        y: 190,
+        width: 42,
+        label: "2",
+        color: color(230, 230, 230),
+        onClick: function() {
+            if (currentColor === color(255, 255, 255)) {
+            draw = function() {
+                noStroke();
+               coloredsquares2[3].draw();
+            };
+            }
         }
-    }
-});
-
-var coloredcolor3Square1 = new Square({
-    x: 175,
-    y: 230,
-    width: 42,
-    label: " ",
-    color: color(43, 171, 60),
-});
+    })
+    ];
 
 //green 3 squares
-var color3Square1 = new Square({
-    x: 175,
-    y: 230,
-    width: 42,
-    label: "3",
-    color: color(186, 186, 186),
-    onClick: function() {
-        if (currentColor === color(43, 171, 60)) {
-        draw = function() {
-            noStroke();
-           coloredcolor3Square1.draw();
-        };
+var coloredsquares3 = [
+    new Square({
+        x: 175,
+        y: 230,
+        width: 42,
+        label: " ",
+        color: color(43, 171, 60),
+    }),
+    new Square({
+        x: 175,
+        y: 270,
+        width: 42,
+        label: " ",
+        color: color(43, 171, 60),
+    }),
+    new Square({
+        x: 217,
+        y: 230,
+        width: 42,
+        label: " ",
+        color: color(43, 171, 60),
+    })
+];
+
+var squares3 = [
+    new Square({
+        x: 175,
+        y: 230,
+        width: 42,
+        label: "3",
+        color: color(186, 186, 186),
+        onClick: function() {
+            if (currentColor === color(43, 171, 60)) {
+            draw = function() {
+                noStroke();
+               coloredsquares3[0].draw();
+            };
+            }
         }
-    }
-});
-
-var coloredcolor3Square3 = new Square({
-    x: 175,
-    y: 270,
-    width: 42,
-    label: " ",
-    color: color(43, 171, 60),
-});
-
-var color3Square3 = new Square({
-    x: 175,
-    y: 270,
-    width: 42,
-    label: "3",
-    color: color(186, 186, 186),
-    onClick: function() {
-        if (currentColor === color(43, 171, 60)) {
-        draw = function() {
-            noStroke();
-           coloredcolor3Square3.draw();
-        };
+    }),
+    new Square({
+        x: 175,
+        y: 270,
+        width: 42,
+        label: "3",
+        color: color(186, 186, 186),
+        onClick: function() {
+            if (currentColor === color(43, 171, 60)) {
+            draw = function() {
+                noStroke();
+               coloredsquares3[1].draw();
+            };
+            }
         }
-    }
-});
-
-var coloredcolor3Square2 = new Square({
-    x: 217,
-    y: 230,
-    width: 42,
-    label: " ",
-    color: color(43, 171, 60),
-});
-
-var color3Square2 = new Square({
-    x: 217,
-    y: 230,
-    width: 42,
-    label: "3",
-    color: color(186, 186, 186),
-    onClick: function() {
-        if (currentColor === color(43, 171, 60)) {
-        draw = function() {
-            noStroke();
-           coloredcolor3Square2.draw();
-        };
+    }), 
+    new Square({
+        x: 217,
+        y: 230,
+        width: 42,
+        label: "3",
+        color: color(186, 186, 186),
+        onClick: function() {
+            if (currentColor === color(43, 171, 60)) {
+            draw = function() {
+                noStroke();
+               coloredsquares3[2].draw();
+            };
+            }
+            
         }
-        
-    }
-});
+    })
+];
 
 //scene 2 squares
 
 //light pink squares
-var scene2coloredlightpinkSquare1 = new Square({ //the filled in square is drawn on top of the empty square
-    x: 175,
-    y: 150,
-    width: 42,
-    label: " ",
-    color: color(255, 97, 202),
-});
+var scene2coloredsquares1 = [
+    new Square({ //the filled in square is drawn on top of the empty square
+        x: 175,
+        y: 150,
+        width: 42,
+        label: " ",
+        color: color(255, 97, 202),
+    })
+];
 
-var scene2lightpinkSquare1 = new Square({ //the square with no color and number visable
-    x: 175,
-    y: 150,
-    width: 42,
-    label: "3",
-    color: color(209, 209, 209),
-    onClick: function() {
-        if (currentColor === color(255, 97, 202)) {
-        draw = function() {
-            noStroke();
-           scene2coloredlightpinkSquare1.draw(); 
-        };
+var scene2squares1 = [
+    new Square({ //the square with no color and number visable
+        x: 175,
+        y: 150,
+        width: 42,
+        label: "3",
+        color: color(209, 209, 209),
+        onClick: function() {
+            if (currentColor === color(255, 97, 202)) {
+            draw = function() {
+                noStroke();
+               scene2coloredsquares1[0].draw(); 
+            };
+            }
         }
-    }
-    
-});
+})
+];
 
 //pink squares
-var scene2coloredpinkSquare1 = new Square({
-    x: 133,
-    y: 150,
-    width: 42,
-    label: " ",
-    color: color(255, 18, 144),
-});
+var scene2coloredsquares2 = [
+    new Square({
+        x: 133,
+        y: 150,
+        width: 42,
+        label: " ",
+        color: color(255, 18, 144),
+    }),
+    new Square({
+        x: 217,
+        y: 150,
+        width: 42,
+        label: " ",
+        color: color(255, 18, 144),
+    }),
+    new Square({
+        x: 217,
+        y: 190,
+        width: 42,
+        label: " ",
+        color: color(255, 18, 144),
+    }),
+    new Square({
+        x: 133,
+        y: 190,
+        width: 42,
+        label: " ",
+        color: color(255, 18, 144),
+    }),
+    new Square({
+        x: 175,
+        y: 190,
+        width: 42,
+        label: " ",
+        color: color(255, 18, 144),
+    }),
+    new Square({
+        x: 175,
+        y: 230,
+        width: 42,
+        label: " ",
+        color: color(255, 18, 144),
+    })
+];
 
-var scene2pinkSquare1 = new Square({
-    x: 133,
-    y: 150,
-    width: 42,
-    label: "2",
-    color: color(230, 230, 230),
-    onClick: function() {
-        if (currentColor === color(255, 18, 144)) {
-        draw = function() {
-            noStroke();
-           scene2coloredpinkSquare1.draw(); 
-        };
+var scene2squares2 = [
+    new Square({
+        x: 133,
+        y: 150,
+        width: 42,
+        label: "2",
+        color: color(230, 230, 230),
+        onClick: function() {
+            if (currentColor === color(255, 18, 144)) {
+            draw = function() {
+                noStroke();
+               scene2coloredsquares2[0].draw(); 
+            };
+            }
         }
-    }
-});
-
-var scene2coloredpinkSquare2 = new Square({
-    x: 217,
-    y: 150,
-    width: 42,
-    label: " ",
-    color: color(255, 18, 144),
-});
-
-var scene2pinkSquare2 = new Square({
-    x: 217,
-    y: 150,
-    width: 42,
-    label: "2",
-    color: color(230, 230, 230),
-    onClick: function() {
-        if (currentColor === color(255, 18, 144)) {
-        draw = function() {
-            noStroke();
-           scene2coloredpinkSquare2.draw(); 
-        };
+    }),
+    new Square({
+        x: 217,
+        y: 150,
+        width: 42,
+        label: "2",
+        color: color(230, 230, 230),
+        onClick: function() {
+            if (currentColor === color(255, 18, 144)) {
+            draw = function() {
+                noStroke();
+               scene2coloredsquares2[1].draw(); 
+            };
+            }
         }
-    }
-    
-});
-
-var scene2coloredpinkSquare3 = new Square({
-    x: 217,
-    y: 190,
-    width: 42,
-    label: " ",
-    color: color(255, 18, 144),
-});
-
-var scene2pinkSquare3 = new Square({
-    x: 217,
-    y: 190,
-    width: 42,
-    label: "2",
-    color: color(230, 230, 230),
-    onClick: function() {
-        if (currentColor === color(255, 18, 144)) {
-        draw = function() {
-            noStroke();
-           scene2coloredpinkSquare3.draw(); 
-        };
+    }),
+    new Square({
+        x: 217,
+        y: 190,
+        width: 42,
+        label: "2",
+        color: color(230, 230, 230),
+        onClick: function() {
+            if (currentColor === color(255, 18, 144)) {
+            draw = function() {
+                noStroke();
+               scene2coloredsquares2[2].draw(); 
+            };
+            }
         }
-    }
-});
-
-var scene2coloredpinkSquare4 = new Square({
-    x: 133,
-    y: 190,
-    width: 42,
-    label: " ",
-    color: color(255, 18, 144),
-});
-
-var scene2pinkSquare4 = new Square({
-    x: 133,
-    y: 190,
-    width: 42,
-    label: "2",
-    color: color(230, 230, 230),
-    onClick: function() {
-        if (currentColor === color(255, 18, 144)) {
-        draw = function() {
-            noStroke();
-           scene2coloredpinkSquare4.draw(); 
-        };
+    }),
+    new Square({
+        x: 133,
+        y: 190,
+        width: 42,
+        label: "2",
+        color: color(230, 230, 230),
+        onClick: function() {
+            if (currentColor === color(255, 18, 144)) {
+            draw = function() {
+                noStroke();
+               scene2coloredsquares2[3].draw(); 
+            };
+            }
         }
-    }
-});
-
-var scene2coloredpinkSquare5 = new Square({
-    x: 175,
-    y: 190,
-    width: 42,
-    label: " ",
-    color: color(255, 18, 144),
-});
-
-var scene2pinkSquare5 = new Square({
-    x: 175,
-    y: 190,
-    width: 42,
-    label: "2",
-    color: color(230, 230, 230),
-    onClick: function() {
-        if (currentColor === color(255, 18, 144)) {
-        draw = function() {
-            noStroke();
-           scene2coloredpinkSquare5.draw(); 
-        };
+    }),
+    new Square({
+        x: 175,
+        y: 190,
+        width: 42,
+        label: "2",
+        color: color(230, 230, 230),
+        onClick: function() {
+            if (currentColor === color(255, 18, 144)) {
+            draw = function() {
+                noStroke();
+               scene2coloredsquares2[4].draw(); 
+            };
+            }
         }
-    }
-});
-
-var scene2coloredpinkSquare6 = new Square({
-    x: 175,
-    y: 230,
-    width: 42,
-    label: " ",
-    color: color(255, 18, 144),
-});
-
-var scene2pinkSquare6 = new Square({
-    x: 175,
-    y: 230,
-    width: 42,
-    label: "2",
-    color: color(230, 230, 230),
-    onClick: function() {
-        if (currentColor === color(255, 18, 144)) {
-        draw = function() {
-            noStroke();
-           scene2coloredpinkSquare6.draw(); 
-        };
+    }),
+    new Square({
+        x: 175,
+        y: 230,
+        width: 42,
+        label: "2",
+        color: color(230, 230, 230),
+        onClick: function() {
+            if (currentColor === color(255, 18, 144)) {
+            draw = function() {
+                noStroke();
+               scene2coloredsquares2[5].draw(); 
+            };
+            }
         }
-    }
-});
+    })
+];
 
 //red squares * NEED TO FIX GREEN SQUARE IN L2
-var scene2coloredredSquare1 = new Square({
-    x: 133,
-    y: 110,
-    width: 42,
-    label: " ",
-    color: color(255, 0, 0),
-});
+var scene2coloredsquares3 = [
+    new Square({
+        x: 133,
+        y: 110,
+        width: 42,
+        label: " ",
+        color: color(255, 0, 0),
+    }),
+    new Square({
+        x: 217,
+        y: 110,
+        width: 42,
+        label: " ",
+        color: color(255, 0, 0),
+    }),
+    new Square({
+        x: 91,
+        y: 150,
+        width: 42,
+        label: " ",
+        color: color(255, 0, 0),
+    }),
+    new Square({
+        x: 91,
+        y: 190,
+        width: 42,
+        label: " ",
+        color: color(255, 0, 0),
+    }),
+    new Square({
+        x: 259,
+        y: 150,
+        width: 42,
+        label: " ",
+        color: color(255, 0, 0),
+    }),
+    new Square({
+        x: 259,
+        y: 190,
+        width: 42,
+        label: " ",
+        color: color(255, 0, 0),
+    }),
+    new Square({
+        x: 133,
+        y: 230,
+        width: 42,
+        label: " ",
+        color: color(255, 0, 0),
+    }),
+    new Square({
+        x: 175,
+        y: 270,
+        width: 42,
+        label: " ",
+        color: color(255, 0, 0),
+    }),
+    new Square({
+        x: 217,
+        y: 230,
+        width: 42,
+        label: " ",
+        color: color(255, 0, 0),
+    })
+];
 
-var scene2redSquare1 = new Square({
-    x: 133,
-    y: 110,
-    width: 42,
-    label: "1",
-    color: color(186, 186, 186),
-    onClick: function() {
-        if (currentColor === color(255, 0, 0)) {
-        draw = function() {
-            noStroke();
-           scene2coloredredSquare1.draw(); 
-        };
+var scene2squares3 = [
+    new Square({
+        x: 133,
+        y: 110,
+        width: 42,
+        label: "1",
+        color: color(186, 186, 186),
+        onClick: function() {
+            if (currentColor === color(255, 0, 0)) {
+            draw = function() {
+                noStroke();
+               scene2coloredsquares3[0].draw(); 
+            };
+            }
         }
-    }
-});
-
-var scene2coloredredSquare2 = new Square({
-    x: 217,
-    y: 110,
-    width: 42,
-    label: " ",
-    color: color(255, 0, 0),
-});
-
-var scene2redSquare2 = new Square({
-    x: 217,
-    y: 110,
-    width: 42,
-    label: "1",
-    color: color(186, 186, 186),
-    onClick: function() {
-        if (currentColor === color(255, 0, 0)) {
-        draw = function() {
-            noStroke();
-           scene2coloredredSquare2.draw(); 
-        };
+    }),
+    new Square({
+        x: 217,
+        y: 110,
+        width: 42,
+        label: "1",
+        color: color(186, 186, 186),
+        onClick: function() {
+            if (currentColor === color(255, 0, 0)) {
+            draw = function() {
+                noStroke();
+               scene2coloredsquares3[1].draw(); 
+            };
+            }
         }
-    }
+        
+    }),
+    new Square({
+        x: 91,
+        y: 150,
+        width: 42,
+        label: "1",
+        color: color(186, 186, 186),
+        onClick: function() {
+            if (currentColor === color(255, 0, 0)) {
+            draw = function() {
+                noStroke();
+               scene2coloredsquares3[2].draw(); 
+            };
+            }
+        }
+        
+    }),
+    new Square({
+        x: 91,
+        y: 190,
+        width: 42,
+        label: "1",
+        color: color(186, 186, 186),
+        onClick: function() {
+            if (currentColor === color(255, 0, 0)) {
+            draw = function() {
+                noStroke();
+               scene2coloredsquares3[3].draw(); 
+            };
+            }
+        }
+        
+    }),
+    new Square({
+        x: 259,
+        y: 150,
+        width: 42,
+        label: "1",
+        color: color(186, 186, 186),
+        onClick: function() {
+            if (currentColor === color(255, 0, 0)) {
+            draw = function() {
+                noStroke();
+               scene2coloredsquares3[4].draw(); 
+            };
+            }
+        }
+        
+    }),
+    new Square({
+        x: 259,
+        y: 190,
+        width: 42,
+        label: "1",
+        color: color(186, 186, 186),
+        onClick: function() {
+            if (currentColor === color(255, 0, 0)) {
+            draw = function() {
+                noStroke();
+               scene2coloredsquares3[5].draw(); 
+            };
+            }
+        }
+        
+    }),
+    new Square({
+        x: 133,
+        y: 230,
+        width: 42,
+        label: "1",
+        color: color(186,186,186),
+        onClick: function() {
+            if (currentColor === color(255, 0, 0)) {
+            draw = function() {
+                noStroke();
+               scene2coloredsquares3[6].draw(); 
+            };
+            }
+        }
+    }),
+    new Square({
+        x: 175,
+        y: 270,
+        width: 42,
+        label: "1",
+        color: color(186,186,186),
+        onClick: function() {
+            if (currentColor === color(255, 0, 0)) {
+            draw = function() {
+                noStroke();
+               scene2coloredsquares3[7].draw(); 
+            };
+            }
+        }
+    }),
+    new Square({
+        x: 217,
+        y: 230,
+        width: 42,
+        label: "1",
+        color: color(186,186,186),
+        onClick: function() {
+            if (currentColor === color(255, 0, 0)) {
+            draw = function() {
+                noStroke();
+               scene2coloredsquares3[8].draw(); 
+            };
+            }
+        }
+    })
+];
+
+//scene 3 squares
+
+//light yellow 1 squares
+var scene3coloredsquares1 = [
+    new Square({
+        x: 175,
+        y: 150,
+        width: 42,
+        label: " ",
+        color: color(255, 251, 219)
+        })
+    ];
     
-});
-
-var scene2coloredredSquare3 = new Square({
-    x: 91,
-    y: 150,
-    width: 42,
-    label: " ",
-    color: color(255, 0, 0),
-});
-
-var scene2redSquare3 = new Square({
-    x: 91,
-    y: 150,
-    width: 42,
-    label: "1",
-    color: color(186, 186, 186),
-    onClick: function() {
-        if (currentColor === color(255, 0, 0)) {
-        draw = function() {
-            noStroke();
-           scene2coloredredSquare3.draw(); 
-        };
+var scene3squares1 = [
+    new Square({
+        x: 175,
+        y: 150,
+        width: 42,
+        label: "1",
+        color: color(209, 209, 209),
+        onClick: function() {
+            if (currentColor === color(255, 251, 219)) {
+            draw = function() {
+                noStroke();
+               scene3coloredsquares1[0].draw(); 
+            };
+            }
         }
-    }
     
-});
+    })
+];
 
-var scene2coloredredSquare4 = new Square({
-    x: 91,
-    y: 190,
-    width: 42,
-    label: " ",
-    color: color(255, 0, 0),
-});
-
-var scene2redSquare4 = new Square({
-    x: 91,
-    y: 190,
-    width: 42,
-    label: "1",
-    color: color(186, 186, 186),
-    onClick: function() {
-        if (currentColor === color(255, 0, 0)) {
-        draw = function() {
-            noStroke();
-           scene2coloredredSquare4.draw(); 
-        };
-        }
-    }
+//yellow 2 squares
+var scene3coloredsquares2 = [
+    new Square({
+        x: 217,
+        y: 150,
+        width: 42,
+        label: " ",
+        color: color(255, 242, 94),
+    }),
+    new Square({
+        x: 133,
+        y: 150,
+        width: 42,
+        label: " ",
+        color: color(255, 242, 94),
+    }),
+    new Square({
+        x: 175,
+        y: 110,
+        width: 42,
+        label: " ",
+        color: color(255, 242, 94),
+    }),
+    new Square({
+        x: 175,
+        y: 190,
+        width: 42,
+        label: " ",
+        color: color(255, 242, 94),
+    }),
     
-});
-
-var scene2coloredredSquare5 = new Square({
-    x: 259,
-    y: 150,
-    width: 42,
-    label: " ",
-    color: color(255, 0, 0),
-});
-
-var scene2redSquare5 = new Square({
-    x: 259,
-    y: 150,
-    width: 42,
-    label: "1",
-    color: color(186, 186, 186),
-    onClick: function() {
-        if (currentColor === color(255, 0, 0)) {
-        draw = function() {
-            noStroke();
-           scene2coloredredSquare5.draw(); 
-        };
-        }
-    }
     
-});
+];
 
-var scene2coloredredSquare6 = new Square({
-    x: 259,
-    y: 190,
-    width: 42,
-    label: " ",
-    color: color(255, 0, 0),
-});
-
-var scene2redSquare6 = new Square({
-    x: 259,
-    y: 190,
-    width: 42,
-    label: "1",
-    color: color(186, 186, 186),
-    onClick: function() {
-        if (currentColor === color(255, 0, 0)) {
-        draw = function() {
-            noStroke();
-           scene2coloredredSquare6.draw(); 
-        };
+var scene3squares2 = [
+    new Square({
+        x: 217,
+        y: 150,
+        width: 42,
+        label: "2",
+        color: color(230, 230, 230),
+        onClick: function() {
+            if (currentColor === color(255, 242, 94)) {
+            draw = function() {
+                noStroke();
+               scene3coloredsquares2[0].draw();
+            };
+            }
         }
-    }
+    }),
+    new Square({
+        x: 133,
+        y: 150,
+        width: 42,
+        label: "2",
+        color: color(230, 230, 230),
+        onClick: function() {
+            if (currentColor === color(255, 242, 94)) {
+            draw = function() {
+                noStroke();
+               scene3coloredsquares2[1].draw();
+            };
+            }
+        }
+    }), 
+    new Square({
+        x: 175,
+        y: 110,
+        width: 42,
+        label: "2",
+        color: color(230, 230, 230),
+        onClick: function() {
+            if (currentColor === color(255, 242, 94)) {
+            draw = function() {
+                noStroke();
+               scene3coloredsquares2[2].draw();
+            };
+            }
+        }
+    }),
+        new Square({
+        x: 175,
+        y: 190,
+        width: 42,
+        label: "2",
+        color: color(230, 230, 230),
+        onClick: function() {
+            if (currentColor === color(255, 242, 94)) {
+            draw = function() {
+                noStroke();
+               scene3coloredsquares2[3].draw();
+            };
+            }
+        }
+    })
+];
+
+//scene 3 colored squares 3
+var scene3coloredsquares3 = [
+    new Square({
+        x: 217,
+        y: 110,
+        width: 42,
+        label: " ",
+        color: color(255, 206, 43),
+    }),
+    new Square({
+        x: 133,
+        y: 190,
+        width: 42,
+        label: " ",
+        color: color(255, 206, 43),
+    }),
+    new Square({
+        x: 133,
+        y: 110,
+        width: 42,
+        label: " ",
+        color: color(255, 206, 43),
+    }),
+    new Square({
+        x: 217,
+        y: 190,
+        width: 42,
+        label: " ",
+        color: color(255, 206, 43),
+    }),
     
-});
+    
+];
 
-var scene2coloredredSquare7 = new Square({
-    x: 133,
-    y: 230,
-    width: 42,
-    label: " ",
-    color: color(255, 0, 0),
-});
-
-var scene2redSquare7 = new Square({
-    x: 133,
-    y: 230,
-    width: 42,
-    label: "1",
-    color: color(186,186,186),
-    onClick: function() {
-        if (currentColor === color(255, 0, 0)) {
-        draw = function() {
-            noStroke();
-           scene2coloredredSquare7.draw(); 
-        };
+var scene3squares3 = [
+    new Square({
+        x: 217,
+        y: 110,
+        width: 42,
+        label: "3",
+        color: color(186, 186, 186),
+        onClick: function() {
+            if (currentColor === color(255, 206, 43)) {
+            draw = function() {
+                noStroke();
+               scene3coloredsquares3[0].draw();
+            };
+            }
         }
-    }
-});
-
-var scene2coloredredSquare8 = new Square({
-    x: 175,
-    y: 270,
-    width: 42,
-    label: " ",
-    color: color(255, 0, 0),
-});
-
-var scene2redSquare8 = new Square({
-    x: 175,
-    y: 270,
-    width: 42,
-    label: "1",
-    color: color(186,186,186),
-    onClick: function() {
-        if (currentColor === color(255, 0, 0)) {
-        draw = function() {
-            noStroke();
-           scene2coloredredSquare8.draw(); 
-        };
+    }),
+    new Square({
+        x: 133,
+        y: 190,
+        width: 42,
+        label: "3",
+        color: color(186, 186, 186),
+        onClick: function() {
+            if (currentColor === color(255, 206, 43)) {
+            draw = function() {
+                noStroke();
+               scene3coloredsquares3[1].draw();
+            };
+            }
         }
-    }
-});
-
-var scene2coloredredSquare9 = new Square({
-    x: 217,
-    y: 230,
-    width: 42,
-    label: " ",
-    color: color(255, 0, 0),
-});
-
-var scene2redSquare9 = new Square({
-    x: 217,
-    y: 230,
-    width: 42,
-    label: "1",
-    color: color(186,186,186),
-    onClick: function() {
-        if (currentColor === color(255, 0, 0)) {
-        draw = function() {
-            noStroke();
-           scene2coloredredSquare9.draw(); 
-        };
+    }), 
+    new Square({
+        x: 133,
+        y: 110,
+        width: 42,
+        label: "3",
+        color: color(186, 186, 186),
+        onClick: function() {
+            if (currentColor === color(255, 206, 43)) {
+            draw = function() {
+                noStroke();
+               scene3coloredsquares3[2].draw();
+            };
+            }
         }
-    }
-});
+    }),
+        new Square({
+        x: 217,
+        y: 190,
+        width: 42,
+        label: "3",
+        color: color(186, 186, 186),
+        onClick: function() {
+            if (currentColor === color(255, 206, 43)) {
+            draw = function() {
+                noStroke();
+               scene3coloredsquares3[3].draw();
+            };
+            }
+        }
+    })
+];
+
+//scene 3 colored squares 4
+var scene3coloredsquares4 = [
+    new Square({
+        x: 290,
+        y: 159,
+        width: 42,
+        label: " ",
+        color: color(255, 249, 186),
+    }),
+    new Square({
+        x: 61,
+        y: 150,
+        width: 42,
+        label: " ",
+        color: color(255, 249, 186),
+    }),
+    new Square({
+        x: 175,
+        y: 56,
+        width: 42,
+        label: " ",
+        color: color(255, 249, 186),
+    }),
+    new Square({
+        x: 175,
+        y: 250,
+        width: 42,
+        label: " ",
+        color: color(255, 249, 186),
+    }),
+    
+    
+];
+
+var scene3squares4 = [
+    new Square({
+        x: 290,
+        y: 159,
+        width: 42,
+        label: "4",
+        color: color(252, 252, 252),
+        onClick: function() {
+            if (currentColor === color(255, 249, 186)) {
+            draw = function() {
+                noStroke();
+               scene3coloredsquares4[0].draw();
+            };
+            }
+        }
+    }),
+    new Square({
+        x: 61,
+        y: 150,
+        width: 42,
+        label: "4",
+        color: color(252, 252, 252),
+        onClick: function() {
+            if (currentColor === color(255, 249, 186)) {
+            draw = function() {
+                noStroke();
+               scene3coloredsquares4[1].draw();
+            };
+            }
+        }
+    }), 
+    new Square({
+        x: 175,
+        y: 56,
+        width: 42,
+        label: "4",
+        color: color(252, 252, 252),
+        onClick: function() {
+            if (currentColor === color(255, 249, 186)) {
+            draw = function() {
+                noStroke();
+               scene3coloredsquares4[2].draw();
+            };
+            }
+        }
+    }),
+        new Square({
+        x: 175,
+        y: 250,
+        width: 42,
+        label: "4",
+        color: color(252, 252, 252),
+        onClick: function() {
+            if (currentColor === color(255, 249, 186)) {
+            draw = function() {
+                noStroke();
+               scene3coloredsquares4[3].draw();
+            };
+            }
+        }
+    })
+];
+
+//scene 3 colored squares 5
+var scene3coloredsquares5 = [
+    new Square({
+        x: 265,
+        y: 235,
+        width: 42,
+        label: " ",
+        color: color(250, 179, 0),
+    }),
+    new Square({
+        x: 86,
+        y: 65,
+        width: 42,
+        label: " ",
+        color: color(250, 179, 0),
+    }),
+    new Square({
+        x: 265,
+        y: 65,
+        width: 42,
+        label: " ",
+        color: color(250, 179, 0),
+    }),
+    new Square({
+        x: 86,
+        y: 235,
+        width: 42,
+        label: " ",
+        color: color(250, 179, 0),
+    }),
+    
+    
+];
+
+var scene3squares5 = [
+    new Square({
+        x: 265,
+        y: 235,
+        width: 42,
+        label: "5",
+        color: color(133, 133, 133),
+        onClick: function() {
+            if (currentColor === color(250, 179, 0)) {
+            draw = function() {
+                noStroke();
+               scene3coloredsquares5[0].draw();
+            };
+            }
+        }
+    }),
+    new Square({
+        x: 86,
+        y: 65,
+        width: 42,
+        label: "5",
+        color: color(133, 133, 133),
+        onClick: function() {
+            if (currentColor === color(250, 179, 0)) {
+            draw = function() {
+                noStroke();
+               scene3coloredsquares5[1].draw();
+            };
+            }
+        }
+    }), 
+    new Square({
+        x: 265,
+        y: 65,
+        width: 42,
+        label: "5",
+        color: color(133, 133, 133),
+        onClick: function() {
+            if (currentColor === color(250, 179, 0)) {
+            draw = function() {
+                noStroke();
+               scene3coloredsquares5[2].draw();
+            };
+            }
+        }
+    }),
+        new Square({
+        x: 86,
+        y: 235,
+        width: 42,
+        label: "5",
+        color: color(133, 133, 133),
+        onClick: function() {
+            if (currentColor === color(250, 179, 0)) {
+            draw = function() {
+                noStroke();
+               scene3coloredsquares5[3].draw();
+            };
+            }
+        }
+    })
+];
 
 //startbutton for splash screen
 var startButton = function(config) {
@@ -854,6 +1261,7 @@ var drawScene0 = function() {
     drawKelly(292,266,50);
 }; 
 var drawScene2; //declairs this so that it exisits but doesn't have a value
+
 var NextButton = new startButton({
     x: 300,
     y: 20,
@@ -861,20 +1269,22 @@ var NextButton = new startButton({
     height: 30,
     label: "  Next",
     onClick: function() {
-        //currentScene = 2;
         drawScene2();
+        level1 = true;
     }
 });
 var drawScene3;
+
 var NextButton2 = new startButton({
     x: 300,
-    y: 340,
+    y: 300,
     width: 80,
     height: 30,
     label: "  Next",
     onClick: function() {
         drawScene3();
         //currentScene = 3;
+        level2 = true;
     }
 });
 
@@ -911,23 +1321,23 @@ Button.prototype.handleMouseClick = function() {
     }
 };
 
-//color buttons
-var Button1 = new Button({
-    x: 50,
-    y: 354,
-    width: 50,
-    label: "1",
-    color: color(255, 255, 0),
-    onClick: function() {
-        currentColor = color(255, 255, 0);
-        draw = function() {
-            fill(currentColor);
-            rect(120,21,15,15);
-        };
-    }
-});
-
-var Button2 = new Button({
+//color buttons level 1
+var buttons1 = [
+    new Button({
+        x: 50,
+        y: 354,
+        width: 50,
+        label: "1",
+        color: color(255, 255, 0),
+        onClick: function() {
+            currentColor = color(255, 255, 0);
+            draw = function() {
+                fill(currentColor);
+                rect(120,21,15,15);
+            };
+        }
+    }),
+    new Button({
     x: 115,
     y: 354,
     width: 50,
@@ -940,112 +1350,142 @@ var Button2 = new Button({
             rect(120,21,15,15);
         };
     }
-});
+}),
+    new Button({
+        x: 180,
+        y: 354,
+        width: 50,
+        label: "3",
+        color: color(43, 171, 60),
+        onClick: function() {
+            currentColor = color(43, 171, 60);
+            draw = function() {
+                fill(currentColor);
+                rect(120,21,15,15);
+            };
+        }
+    })
+];
 
-var Button3 = new Button({
-    x: 180,
-    y: 354,
-    width: 50,
-    label: "3",
-    color: color(43, 171, 60),
-    onClick: function() {
-        currentColor = color(43, 171, 60);
-        draw = function() {
-            fill(currentColor);
-            rect(120,21,15,15);
-        };
-    }
-});
+//level 2 buttons
+var buttons2 = [
+    new Button({
+        x: 50,
+        y: 354,
+        width: 50,
+        label: "1",
+        color: color(255, 0, 0),
+        onClick: function() {
+            currentColor = color(255, 0, 0);
+            draw = function() {
+                fill(currentColor);
+                rect(120,21,15,15);
+            };
+        }
+    }),
+    new Button({
+        x: 115,
+        y: 354,
+        width: 50,
+        label: "2",
+        color: color(255, 18, 144),
+        onClick: function() {
+            currentColor = color(255, 18, 144);
+            draw = function() {
+                fill(currentColor);
+                rect(120,21,15,15);
+            };
+        }
+    }),
+    new Button({
+        x: 180,
+        y: 354,
+        width: 50,
+        label: "3",
+        color: color(255, 97, 202),
+        onClick: function() {
+            currentColor = color(255, 97, 202);
+            draw = function() {
+                fill(currentColor);
+                rect(120,21,15,15);
+            };
+        }
+    })
+];
 
-var Scene2Button1 = new Button({
+//level 3 buttons
+var buttons3 = [
+    new Button({
     x: 50,
     y: 354,
     width: 50,
     label: "1",
-    color: color(255, 0, 0),
+    color: color(255, 251, 219),
     onClick: function() {
-        currentColor = color(255, 0, 0);
+        currentColor = color(255, 251, 219);
         draw = function() {
             fill(currentColor);
             rect(120,21,15,15);
         };
     }
-});
-
-var Scene2Button2 = new Button({
+}),
+    new Button({
     x: 115,
     y: 354,
     width: 50,
     label: "2",
-    color: color(255, 18, 144),
+    color: color(255, 242, 94),
     onClick: function() {
-        currentColor = color(255, 18, 144);
+        currentColor = color(255, 242, 94);
         draw = function() {
             fill(currentColor);
             rect(120,21,15,15);
         };
     }
-});
-
-var Scene2Button3 = new Button({
-    x: 180,
-    y: 354,
-    width: 50,
-    label: "3",
-    color: color(255, 97, 202),
-    onClick: function() {
-        currentColor = color(255, 97, 202);
-        draw = function() {
-            fill(currentColor);
-            rect(120,21,15,15);
-        };
-    }
-});
-
-var Scene3Button1 = new Button({
-    x: 50,
-    y: 354,
-    width: 50,
-    label: "1",
-    color: color(51, 51, 51),
-    onClick: function() {
-        currentColor = color(51, 51, 51);
-        draw = function() {
-            fill(currentColor);
-            rect(120,21,15,15);
-        };
-    }
-});
-
-var Scene3Button2 = new Button({
-    x: 115,
-    y: 354,
-    width: 50,
-    label: "2",
-    color: color(180, 222, 202),
-    onClick: function() {
-        currentColor = color(180, 222, 202);
-        draw = function() {
-            fill(currentColor);
-            rect(120,21,15,15);
-        };
-    }
-});
-
-var Scene3Button3 = new Button({
-    x: 180,
-    y: 354,
-    width: 50,
-    label: "3",
-    color: color(168, 203, 255),
-    onClick: function() {
-        currentColor = color(168, 203, 255);
-        draw = function() {
-            fill(currentColor);
-            rect(120,21,15,15);
-        };
-    }
-});
+}),
+    new Button({
+        x: 180,
+        y: 354,
+        width: 50,
+        label: "3",
+        color: color(255, 206, 43),
+        onClick: function() {
+            currentColor = color(255, 206, 43);
+            draw = function() {
+                fill(currentColor);
+                rect(120,21,15,15);
+            };
+        }
+    }),
+    new Button({
+        x: 245,
+        y: 354,
+        width: 50,
+        label: "4",
+        color: color(255, 249, 186),
+        onClick: function() {
+            currentColor = color(255, 249, 186);
+            draw = function() {
+                fill(currentColor);
+                rect(120,21,15,15);
+            };
+        }
+    }),
+    new Button({
+        x: 310,
+        y: 354,
+        width: 50,
+        label: "5",
+        color: color(250, 179, 0),
+        onClick: function() {
+            currentColor = color(250, 179, 0);
+            draw = function() {
+                fill(currentColor);
+                rect(120,21,15,15);
+            };
+        }
+    })
+];
 
 var drawScene1 = function() {
     background(191, 228, 255);
@@ -1058,17 +1498,18 @@ var drawScene1 = function() {
     fill(currentColor);
     rect(120,21,15,15);
     NextButton.draw();
-    color1Square1.draw();
-    color2Square1.draw();
-    color2Square2.draw();
-    color2Square3.draw();
-    color2Square4.draw();
-    color3Square1.draw();
-    color3Square2.draw();
-    color3Square3.draw();
-    Button1.draw();
-    Button2.draw();
-    Button3.draw();
+    for ( var i in squares1 ) {
+        squares1[i].draw();   
+    }
+    for ( var i in squares2 ) {
+        squares2[i].draw();   
+    }
+    for ( var i in squares3 ) {
+        squares3[i].draw();   
+    }
+    for ( var i in buttons1 ) {
+        buttons1[i].draw();   
+    }
     
 };
 
@@ -1083,40 +1524,48 @@ var drawScene2 = function() {
     fill(currentColor);
     rect(120,21,15,15);
     NextButton2.draw();
-    Scene2Button1.draw();
-    Scene2Button2.draw();
-    Scene2Button3.draw();
-    scene2lightpinkSquare1.draw();
-    scene2pinkSquare1.draw();
-    scene2pinkSquare2.draw();
-    scene2pinkSquare3.draw();
-    scene2pinkSquare4.draw();
-    scene2pinkSquare5.draw();
-    scene2pinkSquare6.draw();
-    scene2redSquare1.draw();
-    scene2redSquare2.draw();
-    scene2redSquare3.draw();
-    scene2redSquare4.draw();
-    scene2redSquare5.draw();
-    scene2redSquare6.draw();
-    scene2redSquare7.draw();
-    scene2redSquare8.draw();
-    scene2redSquare9.draw();
+    for ( var i in buttons2 ) {
+        buttons2[i].draw();   
+    }
+    for ( var i in scene2squares1 ) {
+        scene2squares1[i].draw();   
+    }
+    for ( var i in scene2squares2 ) {
+        scene2squares2[i].draw();   
+    }
+    for ( var i in scene2squares3 ) {
+        scene2squares3[i].draw();   
+    }
 };
 
 var drawScene3 = function() {
     background(191, 228, 255);
     fill(0, 0, 0);
     textSize(25);
-    text("Color the Car", 110,53);
+    text("Color the Sun", 205,25);
     textSize(15);
     text("Current Color: ",20,20);
     stroke(0, 0, 0);
     fill(currentColor);
     rect(120,21,15,15);
-    Scene3Button1.draw();
-    Scene3Button2.draw();
-    Scene3Button3.draw();
+    for ( var i in buttons3 ) {
+        buttons3[i].draw();   
+    }
+    for ( var i in scene3squares1 ) {
+        scene3squares1[i].draw();   
+    }
+    for ( var i in scene3squares2 ) {
+        scene3squares2[i].draw();   
+    }
+    for ( var i in scene3squares3 ) {
+        scene3squares3[i].draw();   
+    }
+    for ( var i in scene3squares4 ) {
+        scene3squares4[i].draw();   
+    }
+    for ( var i in scene3squares5 ) {
+        scene3squares5[i].draw();   
+    }
 };
 
 mouseClicked = function() {
@@ -1125,44 +1574,53 @@ mouseClicked = function() {
     }
     if (currentScene === 1) {
         NextButton.handleMouseClick();
-        color1Square1.handleMouseClick();
-        color2Square1.handleMouseClick();
-        color2Square2.handleMouseClick();
-        color2Square3.handleMouseClick();
-        color2Square4.handleMouseClick();
-        color3Square1.handleMouseClick();
-        color3Square2.handleMouseClick();
-        color3Square3.handleMouseClick();
-        Button1.handleMouseClick();
-        Button2.handleMouseClick();
-        Button3.handleMouseClick();
+        for ( var i in squares1 ) {
+        squares1[i].handleMouseClick();
+        }
+        for ( var i in squares2 ) {
+        squares2[i].handleMouseClick();
+        }
+        for ( var i in squares3 ) {
+        squares3[i].handleMouseClick();
+        }
+        for ( var i in buttons1 ) {
+        buttons1[i].handleMouseClick();
+        }
     }
-    if (currentScene === 2) {
-        Scene2Button1.handleMouseClick();
-        Scene2Button2.handleMouseClick();
-        Scene2Button3.handleMouseClick();
+    if (level1 === true) {
+        for ( var i in buttons2 ) {
+        buttons2[i].handleMouseClick();
+        }
         NextButton2.handleMouseClick();
-        scene2lightpinkSquare1.handleMouseClick();
-        scene2pinkSquare1.handleMouseClick();
-        scene2pinkSquare2.handleMouseClick();
-        scene2pinkSquare3.handleMouseClick();
-        scene2pinkSquare4.handleMouseClick();
-        scene2pinkSquare5.handleMouseClick();
-        scene2pinkSquare6.handleMouseClick();
-        scene2redSquare1.handleMouseClick();
-        scene2redSquare2.handleMouseClick();
-        scene2redSquare3.handleMouseClick();
-        scene2redSquare4.handleMouseClick();
-        scene2redSquare5.handleMouseClick();
-        scene2redSquare6.handleMouseClick();
-        scene2redSquare7.handleMouseClick();
-        scene2redSquare8.handleMouseClick();
-        scene2redSquare9.handleMouseClick();
+        for ( var i in scene2squares1 ) {
+        scene2squares1[i].handleMouseClick();
+        }
+        for ( var i in scene2squares2 ) {
+        scene2squares2[i].handleMouseClick();
+        }
+        for ( var i in scene2squares3 ) {
+        scene2squares3[i].handleMouseClick();
+        }
     }
-    if (currentScene === 3) {
-        Scene3Button1.handleMouseClick();
-        Scene3Button2.handleMouseClick();
-        Scene3Button3.handleMouseClick();
+    if (level2 === true) {
+        for ( var i in buttons3 ) {
+        buttons3[i].handleMouseClick();
+        }
+        for ( var i in scene3squares1 ) {
+        scene3squares1[i].handleMouseClick();
+        }
+        for ( var i in scene3squares2 ) {
+        scene3squares2[i].handleMouseClick();
+        }
+        for ( var i in scene3squares3 ) {
+        scene3squares3[i].handleMouseClick();
+        }
+        for ( var i in scene3squares4 ) {
+        scene3squares4[i].handleMouseClick();
+        }
+        for ( var i in scene3squares5 ) {
+        scene3squares5[i].handleMouseClick();
+        }
     }
 
     
@@ -1185,4 +1643,3 @@ draw = function() {
     }
     
 };
-
