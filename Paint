@@ -215,7 +215,7 @@ var coloredsquares1 = [
         label: " ",
         color: color(255, 255, 0),
         })
-    ];
+    ]; // Squares that you Color in "1"
 
 var squares1 = [
     new Square({ //the square with no color and number visable
@@ -234,7 +234,7 @@ var squares1 = [
         }
     
     })
-];
+]; // Empty squares "1"
 
 //white 2 squares
 var coloredsquares2 = [
@@ -268,7 +268,7 @@ var coloredsquares2 = [
     }),
     
     
-];
+]; // Squares that you color in "2"
 
 var squares2 = [
     new Square({
@@ -331,7 +331,7 @@ var squares2 = [
             }
         }
     })
-    ];
+    ]; // empty squares "2" 
 
 //green 3 squares
 var coloredsquares3 = [
@@ -356,7 +356,7 @@ var coloredsquares3 = [
         label: " ",
         color: color(43, 171, 60),
     })
-];
+]; // Squares that you color in "3"
 
 var squares3 = [
     new Square({
@@ -405,7 +405,7 @@ var squares3 = [
             
         }
     })
-];
+]; // empty squares "3"
 
 //scene 2 squares
 
@@ -418,7 +418,7 @@ var scene2coloredsquares1 = [
         label: " ",
         color: color(255, 97, 202),
     })
-];
+]; //Squares that you Color in "1" L2
 
 var scene2squares1 = [
     new Square({ //the square with no color and number visable
@@ -436,7 +436,7 @@ var scene2squares1 = [
             }
         }
 })
-];
+]; // empty squares "1" L2
 
 //pink squares
 var scene2coloredsquares2 = [
@@ -482,7 +482,7 @@ var scene2coloredsquares2 = [
         label: " ",
         color: color(255, 18, 144),
     })
-];
+]; //Squares that you Color in "2" L2
 
 var scene2squares2 = [
     new Square({
@@ -575,9 +575,9 @@ var scene2squares2 = [
             }
         }
     })
-];
+];// empty squares "2" L2 
 
-//red squares * NEED TO FIX GREEN SQUARE IN L2
+//red squares 
 var scene2coloredsquares3 = [
     new Square({
         x: 133,
@@ -642,7 +642,7 @@ var scene2coloredsquares3 = [
         label: " ",
         color: color(255, 0, 0),
     })
-];
+]; //Squares that you Color in "3" L2
 
 var scene2squares3 = [
     new Square({
@@ -785,7 +785,7 @@ var scene2squares3 = [
             }
         }
     })
-];
+]; // empty squares "3" L2 
 
 //scene 3 squares
 
@@ -798,7 +798,7 @@ var scene3coloredsquares1 = [
         label: " ",
         color: color(255, 251, 219)
         })
-    ];
+    ];//Squares that you Color in "1" L3
     
 var scene3squares1 = [
     new Square({
@@ -817,7 +817,7 @@ var scene3squares1 = [
         }
     
     })
-];
+]; // empty squares "1" L3 
 
 //yellow 2 squares
 var scene3coloredsquares2 = [
@@ -851,7 +851,7 @@ var scene3coloredsquares2 = [
     }),
     
     
-];
+];//Squares that you Color in "2" L3
 
 var scene3squares2 = [
     new Square({
@@ -914,7 +914,7 @@ var scene3squares2 = [
             }
         }
     })
-];
+]; // empty squares "2" L3 
 
 //scene 3 colored squares 3
 var scene3coloredsquares3 = [
@@ -948,7 +948,7 @@ var scene3coloredsquares3 = [
     }),
     
     
-];
+]; //Squares that you Color in "3" L3
 
 var scene3squares3 = [
     new Square({
@@ -1011,7 +1011,7 @@ var scene3squares3 = [
             }
         }
     })
-];
+]; // empty squares "3" L3 
 
 //scene 3 colored squares 4
 var scene3coloredsquares4 = [
@@ -1045,7 +1045,7 @@ var scene3coloredsquares4 = [
     }),
     
     
-];
+]; //Squares that you Color in "4" L3
 
 var scene3squares4 = [
     new Square({
@@ -1108,7 +1108,7 @@ var scene3squares4 = [
             }
         }
     })
-];
+]; // empty squares "4" L3
 
 //scene 3 colored squares 5
 var scene3coloredsquares5 = [
@@ -1142,7 +1142,7 @@ var scene3coloredsquares5 = [
     }),
     
     
-];
+];//Squares that you Color in "5" L3
 
 var scene3squares5 = [
     new Square({
@@ -1205,7 +1205,8 @@ var scene3squares5 = [
             }
         }
     })
-];
+]; // empty squares "5" L3
+
 
 //startbutton for splash screen
 var startButton = function(config) {
@@ -1260,7 +1261,9 @@ var drawScene0 = function() {
     drawBitmoji(291,276,50);
     drawKelly(292,266,50);
 }; 
-var drawScene2; //declairs this so that it exisits but doesn't have a value
+
+var drawScene2;//declairs this so that it exisits but doesn't have a value
+    
 
 var NextButton = new startButton({
     x: 300,
@@ -1271,9 +1274,15 @@ var NextButton = new startButton({
     onClick: function() {
         drawScene2();
         level1 = true;
+        draw = function() {
+            
+        };
     }
 });
+
 var drawScene3;
+    currentColor = (0,0,0);
+    
 
 var NextButton2 = new startButton({
     x: 300,
@@ -1283,12 +1292,14 @@ var NextButton2 = new startButton({
     label: "  Next",
     onClick: function() {
         drawScene3();
-        //currentScene = 3;
         level2 = true;
+        draw = function() {
+            
+        };
     }
 });
 
-//buttons
+//color buttons
 var Button = function(config) {
     this.x = config.x || 0;
     this.y = config.y || 0;
@@ -1511,7 +1522,7 @@ var drawScene1 = function() {
         buttons1[i].draw();   
     }
     
-};
+}; // flower
 
 var drawScene2 = function() {
     background(191, 228, 255);
@@ -1536,7 +1547,7 @@ var drawScene2 = function() {
     for ( var i in scene2squares3 ) {
         scene2squares3[i].draw();   
     }
-};
+}; // heart
 
 var drawScene3 = function() {
     background(191, 228, 255);
@@ -1566,7 +1577,7 @@ var drawScene3 = function() {
     for ( var i in scene3squares5 ) {
         scene3squares5[i].draw();   
     }
-};
+}; // sun
 
 mouseClicked = function() {
     if (currentScene === 0) {
@@ -1634,12 +1645,16 @@ draw = function() {
     }
     if (currentScene === 1) {
         drawScene1();
+        
     }
-    if (currentScene === 2) {
+    if (level1 === true) {
         drawScene2();
     }
-    if (currentScene === 3) {
+    if (level2 === true) {
         drawScene3();
     }
     
 };
+
+
+
